@@ -53,7 +53,10 @@ function calculateCategoryExpenses(category) {
 
 // gets unique categories
 function getCategories() {
-  return [...new Set(expenseEntries)];
+  // get the first element of each sub array like ["groceries", 20] -> ["groceries"]
+  const categoryNames = expenseEntries.map((expense) => expense[0]);
+  // keep only unique names
+  return [...new Set(categoryNames)];
 }
 
 const categories = getCategories(); //Saves the uniquecategories
